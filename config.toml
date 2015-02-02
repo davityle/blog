@@ -1,0 +1,8 @@
+languageCode = "en-us"
+title = "Tyler Davis"
+theme = "hugo-uno"
+baseurl = "http://tylerdavis.info/"
+
+[params]
+	description = "a blog for anyone who cares"
+	cover = "/images/entryx1600.jpg"
