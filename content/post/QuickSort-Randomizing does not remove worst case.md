@@ -1,12 +1,13 @@
 +++
 date = "2015-01-31T10:01:16-07:00"
 title = "QuickSort-Randomizing does not remove worst case"
-
+Categories = ["algorithms"]
+Tags = ["algorithms", "quicksort", "java", "big-o"]
 +++
 
 ## Problem
 
-I've read in a few places that Randomizing the pivot point removes the worst case of O(n<span style="position: relative; bottom: 1ex; font-size: 80%;">2</span>) from the quicksort algorithm. [Wikipedia](http://en.wikipedia.org/wiki/Quicksort#Analysis_of_randomized_quicksort) is one of those places. Other places write the whole story but don't show any proof. The whole story is that randomizing the pivot point does not, necessarily, remove the worst case. It's easy to show that this is the case. This article assumes basic knowledge of the quicksort algorithm and complexity theory.
+I've read in a few places that Randomizing the pivot point removes the worst case of O(n<span style="position: relative; bottom: 1ex; font-size: 80%;">2</span>) from the quicksort algorithm. [Wikipedia](http://en.wikipedia.org/wiki/Quicksort#Analysis_of_randomized_quicksort) is one of those places. Other places write the whole story but don't show any proof. The whole story is that randomizing the pivot point does not, necessarily, remove the worst case. It's easy to show that this is the case. This article assumes basic knowledge of the quicksort algorithm and big O notation.
 
 The worst case in quick sort happens when each pivot point always contains the next lowest, or always contains the next highest, number in the sequence.
 
@@ -74,14 +75,15 @@ What if you had a way to generate this worst case scenario? Luckily, I was able 
 /**
  * This class creates the worst case scenario for a quick sort
  */	
-public static class QuickShuffle {
+public class QuickShuffle {
 	/**
 	* assumes a sorted array is passed in
 	*/
 	public static void quickShuffle(int[] a, Random rand){		
-		int[] indexes= new int[a.length - 1];
-		for(int index = 0; index < a.length - 1; index++){
-			int w = index + rand.nextInt(a.length -1 - index);
+		int length = a.length - 1;
+		int[] indexes= new int[length];
+		for(int index = 0; index < length; index++){
+			int w = index + rand.nextInt(length - index);
 			indexes[index] = w;
 		}
 		for(int index = indexes.length - 1; index >= 0; index--){
@@ -149,7 +151,7 @@ public class QuickSort {
 }
 ```
 We can do some profiling and check to see if their is any validity to this worst case scenario.
-I threw together this simple profiler to check out the results of a worst case scenario. 
+I threw together this simple profiler to check out the results of a worst case scenario. (I had to increase Java's stack size using -Xss to run this)
 
 ```
 public class Main {
