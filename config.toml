@@ -6,3 +6,6 @@ baseurl = "http://tylerdavis.info/"
 [params]
 	description = "a blog for anyone who cares"
 	cover = "/images/entryx1600.jpg"
+	AuthorName = "Tyler Davis"
+	github = "davityle"
+	email = "tyler@goodintheglobe.com"
