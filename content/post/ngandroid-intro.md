@@ -7,16 +7,18 @@ menu = "main"
 title = "NgAndroid Introduction"
 +++
 
-![Screenshot of stripes](/images/ngandroid.png)
+![NgAndroid](/images/ngandroid.png)
 
 <br>
 
-It's finally here. The Android UI framework has become as simple and powerful as [AngularJS](https://angularjs.org/). Sort of. 
+It's finally here. The Android UI framework has become as simple and powerful as [AngularJS](https://angularjs.org/). Sort of.
 
-The project [ngAndroid](https://github.com/davityle/ngAndroid) (which is still in beta) on Github has done something that some might not think is possible; NgAndroid brings Angular type directives and data-binding to Android xml attributes. 
+The project [ngAndroid](https://github.com/davityle/ngAndroid) (which is still in beta) on Github has done something that some might not think is possible; NgAndroid brings Angular type directives and data-binding to Android xml attributes.
 
-If you don't know anything about AngularJS then you probably don't know why this is such an exciting anouncement. You can learn more at Angular's 
-[website](https://angularjs.org/) but a previous knowledge of AngularJS is not required to revel in the epicness that is about to be laid before your eyes. 
+If you don't know anything about AngularJS then you probably don't know why this is such an exciting anouncement. You can learn more at Angular's
+[website](https://angularjs.org/) but a previous knowledge of AngularJS is not required to revel in the epicness that is about to be laid before your eyes.
+
+<!--more-->
 
 
 ## Two Way Data Binding
@@ -117,18 +119,18 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-Most of that code is template code. You are doing the same mundane work every time you make a new view. 
+Most of that code is template code. You are doing the same mundane work every time you make a new view.
 
 >Most templating systems bind data in only one direction: they merge template and model components together into a view. After the merge occurs, changes to the model or related sections of the view are NOT automatically reflected in the view. Worse, any changes that the user makes to the view are not reflected in the model. This means that the developer has to write code that constantly syncs the view with the model and the model with the view.
 >
-> -AngularJs 
+> -AngularJs
 >(https://docs.angularjs.org/guide/databinding)
 
 What if you could bind your view to your model in a two way fashion. All of the changes to your model would automatically be propogated to your view and all the changes the user made in the view would automatically be refected in your model.
 
 >The model is the single-source-of-truth for the application state, greatly simplifying the programming model for the developer. You can think of the view as simply an instant projection of your model.
 >
-> -AngularJs 
+> -AngularJs
 >(https://docs.angularjs.org/guide/databinding)
 
 With ngAndroid now your view can look like this.
@@ -184,7 +186,7 @@ private void onIvClick(){
     // do something with the click
 }
 ```
-With just that you have two way databinding. Your model will always reflect your application state. We also get identical funcionality to the previous code. Pretty sweet ey? 
+With just that you have two way databinding. Your model will always reflect your application state. We also get identical funcionality to the previous code. Pretty sweet ey?
 
 
 [Most](http://www.wintellect.com/devcenter/jlikness/10-reasons-web-developers-should-learn-angularjs) [people](http://code.tutsplus.com/tutorials/5-awesome-angularjs-features--net-25651) [agree](http://anandmanisankar.com/posts/angularjs-best-parts/) that two-way data binding is an amazing, if not the best, feature of AngularJS. I tend to agree with them. I also believe that it is one of the greatest features of NgAndroid but it does not end there.

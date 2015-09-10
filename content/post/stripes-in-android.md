@@ -9,7 +9,8 @@ title = "Creating a striped view in Android"
 
 Have you ever said to yourself, 'Wow, this view needs some stripes, but there is no android:stripes="true" attribute and I don't know how to draw stripes using the canvas'? If so, this is the perfect place for you. Or, if you need to draw stripes and figured you'd check the internet for an easy solution before you tried it yourself than you are also in the right place.
 
-For those of you who just want the code here it is. 
+For those of you who just want the code here it is.
+
 
 ```
 public class StripedView extends View {
@@ -64,6 +65,7 @@ public class StripedView extends View {
     }
 }
 ```
+<!--more-->
 Which will result in something that looks like this.
 
 ![Screenshot of stripes](/images/device-2015-02-07-125851.png)
@@ -75,11 +77,11 @@ Grab your width of your stripe. I'm using a percentage of height of the view but
 ```
 float width = (bottomy - topy) * STRIPE_WIDTH_PERCT;
 ```
-Next grab an offset for each stripe. 
+Next grab an offset for each stripe.
 ```
 float offset = (bottomy - topy) * STRIPE_OFFSET_PERCT;
 ```
-Now you need to loop across the width of your view. For this example I start off of the view by the width of the offset in order to get the end of the first stripe at the bottom left of the view. 
+Now you need to loop across the width of your view. For this example I start off of the view by the width of the offset in order to get the end of the first stripe at the bottom left of the view.
 ```
 float xPos = startx - offset
 ```
@@ -98,7 +100,7 @@ for(float xPos = startx - offset; xPos <= endx; xPos += offset + width){
 }
 ```
 
-After that drawing it is as simple as 
+After that drawing it is as simple as
 ```
 canvas.drawPath(stripespath, p);
 ```

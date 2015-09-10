@@ -54,13 +54,13 @@ pivot: 9	 value: 89
 pivot: 8	 value: 123
 {1,2,7,23,44,88,89,999,123,1040,2009}
 
-pivot: 8	 value: 999	
+pivot: 8	 value: 999
 {1,2,7,23,44,88,89,123,999,1040,2009}
 
 pivot: 9	 value: 1040
 {1,2,7,23,44,88,89,123,999,1040,2009}
 ```
-
+<!--more-->
 Hurray! The list is sorted. What do you notice about the number of iterations it took though? What do you notice about the values of the numbers?
 
 Notice that it took about n iterations , and each iteration handled every number that wasn't already sorted. This results in a n operations over n iterations, or O(n<span style="position: relative; bottom: 1ex; font-size: 80%;">2</span>), operation.
@@ -74,7 +74,7 @@ What if you had a way to generate this worst case scenario? Luckily, I was able 
 ```
 /**
  * This class creates the worst case scenario for a quick sort
- */	
+ */
 public class QuickShuffle {
 	/**
 	* assumes a sorted array is passed in
@@ -107,7 +107,7 @@ public class QuickSort {
 	private QuickSort(Random rand){
 		this.rand = rand;
 	}
-	
+
 	public static void quickSort(int[] a, Random rand){
 		new QuickSort(rand).quickSort(a, 0, a.length - 1);
 	}
@@ -123,10 +123,10 @@ public class QuickSort {
 
 	private int switchPivot(int[] a, int bottomIndex, int topIndex) {
 		int index = bottomIndex + rand.nextInt(topIndex - bottomIndex);
-		int value = a[index];	
+		int value = a[index];
 		int bottomSearch = bottomIndex-1 ;
 		int topSearch = topIndex+1 ;
-		
+
 		while (true) {
 		    do{
 		    	bottomSearch++;
@@ -158,7 +158,7 @@ public class Main {
 
 	private static final int NUMBER_OF_ITERATIONS= 12;
 	private static final int STARTING_N = 256;
-	
+
 	public static void main(String[] args) {
 		int n = STARTING_N;
 		for(int index = 0; index < NUMBER_OF_ITERATIONS; index++){
@@ -181,7 +181,7 @@ public class Main {
 			n <<= 1;
 		}			
 	}
-	
+
 	public static boolean isSorted(int[] array){
 		for(int index = 0; index < array.length - 1; index++){
 			if(array[index] > array[index + 1])
