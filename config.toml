@@ -1,11 +1,13 @@
 languageCode = "en-us"
-title = "Tyler Davis"
+title = ""
 theme = "hugo-uno"
-baseurl = "http://tylerdavis.info/"
+baseurl = "http://davityle.github.io/blog/"
+canonifyurls = true
+uglyurls = true
 
 [params]
 	description = "a blog for anyone who cares"
-	cover = "/images/entryx1600.jpg"
+	cover = "http://tylerdavis.info/images/entryx1600.jpg"
 	AuthorName = "Tyler Davis"
 	github = "davityle"
 	email = "tyler@goodintheglobe.com"
