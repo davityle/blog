@@ -1,0 +1,296 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Creating a striped view in Android &middot; Tyler Davis </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://tylerdavis.info/css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://tylerdavis.info/css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Tyler Davis" />
+    
+    <script src="http://tylerdavis.info/js/jquery.min.js"></script>
+    <script src="http://tylerdavis.info/js/main.min.js">
+    </script>
+    <script>      
+      if (document.location.hostname != "localhost"){
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59928738-1', 'auto');
+        ga('send', 'pageview');
+      }
+    </script>
+</head>
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-bars btn-mobile-menu__icon"></i>
+        <i class="fa fa-times btn-mobile-close__icon hidden"></i>
+    </span>
+<header class="panel-cover panel-cover--collapsed"  style="background-image: url(/images/entryx1600.jpg)" >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://tylerdavis.info" title="link to homepage for Tyler Davis">Tyler Davis</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  a blog for anyone who cares  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="/#blog" title="link to Tyler Davis blog" class="blog-button">Blog</a> </li>
+                            </br>  </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation">   
+        
+        <li class="navigation__item">
+            <a href="https://github.com/davityle" title="davityle on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>   
+        
+        <li class="navigation__item">
+            <a href="mailto:tyler@goodintheglobe.com" title="Email tyler@goodintheglobe.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Creating a striped view in Android</h1>
+          <span class="post-date">Sat, Feb 7, 2015</span>
+          <p>Have you ever said to yourself, &lsquo;Wow, this view needs some stripes, but there is no android:stripes=&ldquo;true&rdquo; attribute and I don&rsquo;t know how to draw stripes using the canvas&rsquo;? If so, this is the perfect place for you. Or, if you need to draw stripes and figured you&rsquo;d check the internet for an easy solution before you tried it yourself than you are also in the right place.</p>
+
+<p>For those of you who just want the code here it is.</p>
+
+<pre><code>public class StripedView extends View {
+
+    private static final float STRIPE_WIDTH_PERCT = .05f;
+    private static final float STRIPE_OFFSET_PERCT = .2f;
+    private Path stripespath = new Path();
+    private Paint blackPaint = new Paint();
+
+    public StripedView(Context context) {
+        super(context);
+    }
+
+    public StripedView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public StripedView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public StripedView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
+    //init()
+    {
+        blackPaint.setAntiAlias(true);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        drawStripes(canvas, 0, getHeight(), 0, getWidth(), blackPaint);
+    }
+
+    private void drawStripes(Canvas canvas, float topy, float bottomy, float startx, float endx, Paint p){
+        if(bottomy - topy &lt; 1){
+            return;
+        }
+        stripespath.reset();
+        float width = (bottomy - topy) * STRIPE_WIDTH_PERCT;
+        float offset = (bottomy - topy) * STRIPE_OFFSET_PERCT;
+        for(float xPos = startx - offset; xPos &lt;= endx; xPos += offset + width){
+            stripespath.moveTo(xPos, topy);
+            stripespath.lineTo(xPos + width, topy);
+            stripespath.lineTo(xPos + offset + width, bottomy);
+            stripespath.lineTo(xPos + offset, bottomy);
+            stripespath.lineTo(xPos, topy);
+        }
+        canvas.drawPath(stripespath, p);
+    }
+}
+</code></pre>
+
+<p>Which will result in something that looks like this.</p>
+
+<p><img src="/images/device-2015-02-07-125851.png" alt="Screenshot of stripes" />
+</p>
+
+<p>Drawing stripes is pretty straight forward. You need a defined width of your stripe and an offset between the top and the bottom of the stripe. If the <a href="http://developer.android.com/reference/android/graphics/Canvas.html">Canvas</a> class in Android had a draw polygon class then we could then just draw a bunch of Polygons. Instead we have to use the <a href="http://developer.android.com/reference/android/graphics/Path.html">Path</a> object. Fortunately, the Path object is fairly simple and intuitive to use.</p>
+
+<p>Grab your width of your stripe. I&rsquo;m using a percentage of height of the view but any width is fine.</p>
+
+<pre><code>float width = (bottomy - topy) * STRIPE_WIDTH_PERCT;
+</code></pre>
+
+<p>Next grab an offset for each stripe.</p>
+
+<pre><code>float offset = (bottomy - topy) * STRIPE_OFFSET_PERCT;
+</code></pre>
+
+<p>Now you need to loop across the width of your view. For this example I start off of the view by the width of the offset in order to get the end of the first stripe at the bottom left of the view.</p>
+
+<pre><code>float xPos = startx - offset
+</code></pre>
+
+<p>You&rsquo;ll want to increment the x position by the offset plus the width so that you get evenly spaced stripes. This is important if you want to animate it and have it look good.</p>
+
+<p>When you draw your stripes you can actually use a single path for all of the stripes. You &lsquo;move&rsquo; the path to the top left corner of the stripe which is just (x,y) then you draw a line across to (x + stripeWidth, y), down to (x + stripeWidth + offset, y + height), over to (x + offset, y + height, and then back to (x,y). Then you increment x by the width and the offset and repeat the process until your x position is greater than the width of your view.</p>
+
+<p>You&rsquo;re code will look something like this.</p>
+
+<pre><code>for(float xPos = startx - offset; xPos &lt;= endx; xPos += offset + width){
+    stripespath.moveTo(xPos, topy);
+    stripespath.lineTo(xPos + width, topy);
+    stripespath.lineTo(xPos + offset + width, bottomy);
+    stripespath.lineTo(xPos + offset, bottomy);
+    stripespath.lineTo(xPos, topy);
+}
+</code></pre>
+
+<p>After that drawing it is as simple as</p>
+
+<pre><code>canvas.drawPath(stripespath, p);
+</code></pre>
+
+<p>Now lets have some fun with it. What would happen if we changed our starting position based off of what time it was.</p>
+
+<pre><code>private static final long ANIMATION_SPEED = 30;
+
+float xPos = startx - (System.currentTimeMillis()/ANIMATION_SPEED) % (long)(offset + width)
+</code></pre>
+
+<p>and then redrew the view at a regular interval.</p>
+
+<pre><code>private static final long REFRESH_RATE = 33;
+protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+    drawStripes(canvas, 0, getHeight(), 0, getWidth(), blackPaint);
+    postDelayed(invalidateRunnable, REFRESH_RATE);
+}
+
+private final Runnable invalidateRunnable = new Runnable() {
+    public void run() {
+        invalidate();
+    }
+};
+</code></pre>
+
+<p>You would get this.</p>
+
+<p><img src="/images/imageedit_3_3395727418.gif" alt="Animated Stripes" />
+</p>
+
+<p>Or what if you only want to draw the stripes in a small area of your view. Then you can clip the canvas to only draw in the section that you have clipped.</p>
+
+<pre><code>canvas.save();
+canvas.clipRect(20, 20, getWidth() - 20, getHeight() - 20);
+drawStripes(canvas, 20, getHeight() - 20, 20, getWidth() - 20, redPaint);
+canvas.restore();
+</code></pre>
+
+<p><img src="/images/device-2015-02-07-153205.png" alt="Clipped Stripes" />
+</p>
+
+<p>You can flip the direction of the stripes by swapping the y values.</p>
+
+<pre><code>stripespath.moveTo(xPos, bottomy);
+stripespath.lineTo(xPos + width, bottomy);
+stripespath.lineTo(xPos + offset + width, topy);
+stripespath.lineTo(xPos + offset, topy);
+stripespath.lineTo(xPos, bottomy);
+</code></pre>
+
+<p><img src="/images/device-2015-02-07-153631.png" alt="Swapped Values" />
+</p>
+
+<p>And finally you can draw stripes on any view that you want. Such as a Button.</p>
+
+<pre><code>public class StripedButton extends Button {
+    private static final float STRIPE_WIDTH_PERCT = .1f;
+    private static final float STRIPE_OFFSET_PERCT = .15f;
+    private Path stripespath = new Path();
+    private Paint redPaint = new Paint();
+
+    public StripedButton(Context context) {
+        super(context);
+    }
+
+    public StripedButton(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public StripedButton(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public StripedButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+    }
+    //init()
+    {
+        redPaint.setAntiAlias(true);
+        redPaint.setColor(0xFFFF5555);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        drawStripes(canvas, getPaddingLeft(), getHeight() - getPaddingBottom(), getPaddingLeft(), getWidth() - getPaddingRight(), redPaint);
+        super.onDraw(canvas);
+    }
+
+    private void drawStripes(Canvas canvas, float topy, float bottomy, float startx, float endx, Paint p){
+        if(bottomy - topy &lt; 1){
+            return;
+        }
+        stripespath.reset();
+        float width = (bottomy - topy) * STRIPE_WIDTH_PERCT;
+        float offset = (bottomy - topy) * STRIPE_OFFSET_PERCT;
+        for(float xPos = startx - offset; xPos &lt;= endx; xPos += offset + width){
+            stripespath.moveTo(xPos, bottomy);
+            stripespath.lineTo(xPos + width, bottomy);
+            stripespath.lineTo(xPos + offset + width, topy);
+            stripespath.lineTo(xPos + offset, topy);
+            stripespath.lineTo(xPos, bottomy);
+        }
+        canvas.drawPath(stripespath, p);
+    }
+}
+</code></pre>
+
+<p><img src="/images/device-2015-02-07-154645.png" alt="Button With Stripes" />
+</p>
+
+        </div>
+        <section class="post-comments">
+	<a class="muut" href="https://muut.com/i/tylerdavisinfo/comments:Creating%20a%20striped%20view%20in%20Android">Comments</a>
+	<script src="//cdn.muut.com/1/moot.min.js"></script>
+</section>
+
+      </div>
+    </div>
+  </body>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</html>

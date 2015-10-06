@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Java on Tyler Davis </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://localhost:1313/categories/java/index.xml/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Tue, 15 Sep 2015 14:27:09 MDT</updated>
+    
+    <item>
+      <title>Computer Science Basics by Example</title>
+      <link>http://localhost:1313/post/computer-science-basics/</link>
+      <pubDate>Tue, 15 Sep 2015 14:27:09 MDT</pubDate>
+      
+      <guid>http://localhost:1313/post/computer-science-basics/</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Data Structures - Java&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_1&#34;&gt;Hashmap&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;import java.util.Optional;
+
+@SuppressWarnings(&amp;quot;unchecked&amp;quot;)
+public class HashMap&amp;lt;T, R&amp;gt; {
+
+    private static final int MIN_CAPACITY = 2;
+    private Entry&amp;lt;T, R&amp;gt;[] table;
+    private int internalSize, size;
+    private float fillRatio;
+
+    public HashMap() {
+        this(MIN_CAPACITY);
+    }
+
+    public HashMap(int initialCapacity) {
+        this(initialCapacity, .75f);
+    }
+
+    public HashMap(int initialCapacity, float fillRatio) {
+        this.table = new Entry[Math.max(MIN_CAPACITY, initialCapacity)];
+        this.fillRatio = fillRatio;
+    }
+
+    public Optional&amp;lt;R&amp;gt; put(T key, R value) {
+        int index = getIndex(key);
+        Entry&amp;lt;T, R&amp;gt; current = table[index];
+        table[index] = new Entry&amp;lt;&amp;gt;(key, value);
+
+        if(value == null &amp;amp;&amp;amp; current != null &amp;amp;&amp;amp; current.getValue() != null) {
+            size--;
+        } else if(value != null &amp;amp;&amp;amp; (current == null || current.getValue() == null)){
+            size++;
+        }
+
+        if(current == null &amp;amp;&amp;amp; ++internalSize &amp;gt;= (table.length * fillRatio)) {
+            resizeTable();
+        }
+
+        if(current != null) {
+            return Optional.ofNullable(current.getValue());
+        }
+        return Optional.empty();
+    }
+
+    public Optional&amp;lt;R&amp;gt; get(T key) {
+        int index = getIndex(key);
+        Entry&amp;lt;T, R&amp;gt; entry = table[index];
+        if(entry != null)
+            return Optional.ofNullable(entry.getValue());
+        return Optional.empty();
+    }
+
+    public boolean has(T key) {
+        return get(key).isPresent();
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    protected void resizeTable() {
+        internalSize = size = 0;
+        Entry&amp;lt;T, R&amp;gt;[] tmp = table;
+        table = new Entry[(int) ((table.length /fillRatio)* 2)];
+        for(Entry&amp;lt;T, R&amp;gt; entry : tmp){
+            if(entry != null) {
+                put(entry.getKey(), entry.getValue());
+            }
+        }
+    }
+
+    protected int getIndex(T key) {
+        int hash = key.hashCode();
+        int index = (((hash % table.length) + table.length) % table.length);
+        while(table[index] != null &amp;amp;&amp;amp; (table[index].getKey().hashCode() != hash || !table[index].getKey().equals(key))) {
+            if(++index == table.length) {
+                index = 0;
+            }
+        }
+        return index;
+    }
+
+    public static final class Entry &amp;lt;T, R&amp;gt; {
+        private final T key;
+        private final R value;
+
+        public Entry(T key, R value) {
+            this.key = key;
+            this.value = value;
+        }
+
+        public T getKey() {
+            return key;
+        }
+
+        public R getValue() {
+            return value;
+        }
+    }
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_2&#34;&gt;BinaryHeap&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_3&#34;&gt;Trie&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Trie {
+
+    private static final int ALPHABET_SIZE = 26;
+    private final Trie[] children = new Trie[ALPHABET_SIZE];
+    private boolean isWordEnd;
+
+    public void add(String s) {
+        if(s.length() &amp;gt; 0) {
+            int index = getIndex(s.charAt(0));
+            if(children[index] == null) {
+                children[index] = new Trie();
+            }
+            Trie child = children[index];
+            child.add(s.substring(1));
+        } else {
+            isWordEnd = true;
+        }
+    }
+
+    public boolean has(String s) {
+        if(s.length() == 0)
+            return isWordEnd;
+        int index = getIndex(s.charAt(0));
+        if(children[index] == null)
+            return false;
+        return children[index].has(s.substring(1));
+    }
+
+    private int getIndex(char c) {
+        return c - &#39;a&#39;;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_4&#34;&gt;ArrayList&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;import java.util.Arrays;
+import java.util.Optional;
+
+@SuppressWarnings(&amp;quot;unchecked&amp;quot;)
+public class ArrayList&amp;lt;T&amp;gt; {
+
+    private T[] list;
+    private int size;
+
+    public ArrayList() {
+        this(2);
+    }
+
+    public ArrayList(int initialCapacity) {
+        this.list = (T[]) new Object[initialCapacity];
+    }
+
+    public void add(T value) {
+        list[size] = value;
+        if(++size == list.length) {
+            list = Arrays.copyOf(list, list.length * 2);
+        }
+    }
+
+    public T get(int index) {
+        return list[index];
+    }
+
+    public Optional&amp;lt;Integer&amp;gt; indexOf(T value) {
+        for(int i = 0; i &amp;lt; size; i++) {
+            if(list[i].equals(value)) {
+                return Optional.of(i);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public boolean has(T value) {
+        return indexOf(value).isPresent();
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_5&#34;&gt;Object Oriented Programming - Java&lt;/h2&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;Class&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Frog {
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_7&#34;&gt;Instance/Object&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Frog fred = new Frog();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_8&#34;&gt;Method&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Frog {
+  public int getColor() {
+    return 0xff2dbd3a;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_9&#34;&gt;Method Override / Overload&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;public abstract class Reptile {
+  public abstract int getColor(int alpha);
+}
+
+public class Frog extends Reptile {
+  public int getColor() {
+    return getColor(0xff);
+  }
+
+  @Override
+  public int getColor(int alpha) {
+    return (alpha &amp;lt;&amp;lt; 24) | 0x002dbd3a;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_10&#34;&gt;Static method&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Main {
+  public static void main(String[] args) {
+
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_11&#34;&gt;Constructor&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Frog extends Reptile {
+  public Frog() {}
+  // ...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;###&lt;/p&gt;
+
+&lt;p&gt;superclass or base class
+subclass or derived class
+inheritance
+encapsulation
+multiple inheritance (and give an example)
+delegation/forwarding
+composition/aggregation
+abstract class
+interface/protocol (and different from abstract class)
+method overriding
+method overloading (and difference from overriding)
+polymorphism (without resorting to examples)
+is-a versus has-a relationships (with examples)
+method signatures (what&amp;rsquo;s included in one)
+method visibility (e.g. public/private/other)&lt;/p&gt;
+
+&lt;p&gt;fourier transform&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
