@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Angular on Tyler Davis </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://davityle.github.io/blog/tags/angular/index.xml/</link>
+    <title>Angular on Do you care?</title>
+    <link>http://davityle.github.io/blog/tags/angular/</link>
+    <description>Recent content in Angular on Do you care?</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Wed, 18 Feb 2015 00:05:28 MST</updated>
+    <lastBuildDate>Wed, 18 Feb 2015 00:05:28 -0700</lastBuildDate>
+    <atom:link href="http://davityle.github.io/blog/tags/angular/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>NgAndroid Introduction</title>
       <link>http://davityle.github.io/blog/post/ngandroid-intro/</link>
-      <pubDate>Wed, 18 Feb 2015 00:05:28 MST</pubDate>
+      <pubDate>Wed, 18 Feb 2015 00:05:28 -0700</pubDate>
       
       <guid>http://davityle.github.io/blog/post/ngandroid-intro/</guid>
       <description>
 
-&lt;p&gt;&lt;img src=&#34;/images/ngandroid.png&#34; alt=&#34;NgAndroid&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://davityle.github.io/blog/images/ngandroid.png&#34; alt=&#34;NgAndroid&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;&lt;br&gt;&lt;/p&gt;
@@ -29,7 +29,7 @@
 &lt;p&gt;If you don&amp;rsquo;t know anything about AngularJS then you probably don&amp;rsquo;t know why this is such an exciting anouncement. You can learn more at Angular&amp;rsquo;s
 &lt;a href=&#34;https://angularjs.org/&#34;&gt;website&lt;/a&gt; but a previous knowledge of AngularJS is not required to revel in the epicness that is about to be laid before your eyes.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Two Way Data Binding&lt;/h2&gt;
+&lt;h2 id=&#34;two-way-data-binding:be1842cb0b9d1ce83a7c8d76094c4a38&#34;&gt;Two Way Data Binding&lt;/h2&gt;
 
 &lt;p&gt;When you create a view in XML that the user is going to interact with you usually end up with something that looks like this.&lt;/p&gt;
 

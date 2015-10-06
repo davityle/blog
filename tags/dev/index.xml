@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Dev on Tyler Davis </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://davityle.github.io/blog/tags/dev/index.xml/</link>
+    <title>Dev on Do you care?</title>
+    <link>http://davityle.github.io/blog/tags/dev/</link>
+    <description>Recent content in Dev on Do you care?</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Sat, 07 Feb 2015 11:30:53 MST</updated>
+    <lastBuildDate>Sat, 07 Feb 2015 11:30:53 -0700</lastBuildDate>
+    <atom:link href="http://davityle.github.io/blog/tags/dev/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Creating a striped view in Android</title>
       <link>http://davityle.github.io/blog/post/stripes-in-android/</link>
-      <pubDate>Sat, 07 Feb 2015 11:30:53 MST</pubDate>
+      <pubDate>Sat, 07 Feb 2015 11:30:53 -0700</pubDate>
       
       <guid>http://davityle.github.io/blog/post/stripes-in-android/</guid>
       <description>&lt;p&gt;Have you ever said to yourself, &amp;lsquo;Wow, this view needs some stripes, but there is no android:stripes=&amp;ldquo;true&amp;rdquo; attribute and I don&amp;rsquo;t know how to draw stripes using the canvas&amp;rsquo;? If so, this is the perfect place for you. Or, if you need to draw stripes and figured you&amp;rsquo;d check the internet for an easy solution before you tried it yourself than you are also in the right place.&lt;/p&gt;
@@ -74,7 +74,7 @@
 
 &lt;p&gt;Which will result in something that looks like this.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/device-2015-02-07-125851.png&#34; alt=&#34;Screenshot of stripes&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://davityle.github.io/blog/images/device-2015-02-07-125851.png&#34; alt=&#34;Screenshot of stripes&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Drawing stripes is pretty straight forward. You need a defined width of your stripe and an offset between the top and the bottom of the stripe. If the &lt;a href=&#34;http://developer.android.com/reference/android/graphics/Canvas.html&#34;&gt;Canvas&lt;/a&gt; class in Android had a draw polygon class then we could then just draw a bunch of Polygons. Instead we have to use the &lt;a href=&#34;http://developer.android.com/reference/android/graphics/Path.html&#34;&gt;Path&lt;/a&gt; object. Fortunately, the Path object is fairly simple and intuitive to use.&lt;/p&gt;
@@ -139,7 +139,7 @@ private final Runnable invalidateRunnable = new Runnable() {
 
 &lt;p&gt;You would get this.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/imageedit_3_3395727418.gif&#34; alt=&#34;Animated Stripes&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://davityle.github.io/blog/images/imageedit_3_3395727418.gif&#34; alt=&#34;Animated Stripes&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;Or what if you only want to draw the stripes in a small area of your view. Then you can clip the canvas to only draw in the section that you have clipped.&lt;/p&gt;
@@ -150,7 +150,7 @@ drawStripes(canvas, 20, getHeight() - 20, 20, getWidth() - 20, redPaint);
 canvas.restore();
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/device-2015-02-07-153205.png&#34; alt=&#34;Clipped Stripes&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://davityle.github.io/blog/images/device-2015-02-07-153205.png&#34; alt=&#34;Clipped Stripes&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;You can flip the direction of the stripes by swapping the y values.&lt;/p&gt;
@@ -162,7 +162,7 @@ stripespath.lineTo(xPos + offset, topy);
 stripespath.lineTo(xPos, bottomy);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/device-2015-02-07-153631.png&#34; alt=&#34;Swapped Values&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://davityle.github.io/blog/images/device-2015-02-07-153631.png&#34; alt=&#34;Swapped Values&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;And finally you can draw stripes on any view that you want. Such as a Button.&lt;/p&gt;
@@ -220,7 +220,7 @@ stripespath.lineTo(xPos, bottomy);
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/device-2015-02-07-154645.png&#34; alt=&#34;Button With Stripes&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://davityle.github.io/blog/images/device-2015-02-07-154645.png&#34; alt=&#34;Button With Stripes&#34; /&gt;
 &lt;/p&gt;
 </description>
     </item>

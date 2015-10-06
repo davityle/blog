@@ -4,18 +4,18 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> QuickSort-Randomizing does not remove worst case &middot; Tyler Davis </title>
+    <title> QuickSort-Randomizing does not remove worst case &middot; Do you care? </title>
     
-    <link rel="stylesheet" type="text/css" href="http://davityle.github.io/blog/css/uno.min.css" />
-    <link rel="stylesheet" type="text/css" href="http://davityle.github.io/blog/css/lightGallery.css" />
+    <link rel="stylesheet" type="text/css" href="http://davityle.github.io/blog//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://davityle.github.io/blog//css/lightGallery.css" />
     
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://davityle.github.io/blog/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="http://davityle.github.io/blog/favicon.ico">
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Tyler Davis" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Do you care?" />
     
-    <script src="http://davityle.github.io/blog/js/jquery.min.js"></script>
-    <script src="http://davityle.github.io/blog/js/main.min.js">
+    <script src="http://davityle.github.io/blog//js/jquery.min.js"></script>
+    <script src="http://davityle.github.io/blog//js/main.min.js">
     </script>
     <script>      
       if (document.location.hostname != "localhost"){
@@ -40,7 +40,7 @@
         <div class="panel-main__inner panel-inverted">
             <div class="panel-main__content"> 
                 <h1 class="panel-cover__title panel-title">
-                    <a href="http://davityle.github.io/blog" title="link to homepage for Tyler Davis">Tyler Davis</a>
+                    <a href="http://davityle.github.io/blog/" title="link to homepage for Do you care?">Do you care?</a>
                 </h1>
                 <hr class="panel-cover__divider" />
                 <p class="panel-cover__description">  a blog for anyone who cares  </p>
@@ -48,7 +48,7 @@
                 <div class="navigation-wrapper">
                     <nav class="cover-navigation cover-navigation--primary">
                         <ul class="navigation">
-                            <li class="navigation__item"><a href="/#blog" title="link to Tyler Davis blog" class="blog-button">Blog</a> </li>
+                            <li class="navigation__item"><a href="http://davityle.github.io/blog/#blog" title="link to Do you care? blog" class="blog-button">Blog</a> </li>
                             </br>  </ul>
                     </nav> <nav class="cover-navigation navigation--social">
     <ul class="navigation">   
@@ -75,7 +75,7 @@
           <span class="post-date">Sat, Jan 31, 2015</span>
           
 
-<h2 id="toc_0">Problem</h2>
+<h2 id="problem:f1244a5550aaa86ef2466aa9d905d4f0">Problem</h2>
 
 <p>I&rsquo;ve read in a few places that Randomizing the pivot point removes the worst case of O(n<span style="position: relative; bottom: 1ex; font-size: 80%;">2</span>) from the quicksort algorithm. <a href="http://en.wikipedia.org/wiki/Quicksort#Analysis_of_randomized_quicksort">Wikipedia</a> is one of those places. Other places write the whole story but don&rsquo;t show any proof. The whole story is that randomizing the pivot point does not, necessarily, remove the worst case. It&rsquo;s easy to show that this is the case. This article assumes basic knowledge of the quicksort algorithm and big O notation.</p>
 
@@ -139,7 +139,7 @@ pivot: 9	 value: 1040
 
 <p>Even though this array is sorted using a random pivot it still hit the worst possible case.</p>
 
-<h2 id="toc_1">Proof</h2>
+<h2 id="proof:f1244a5550aaa86ef2466aa9d905d4f0">Proof</h2>
 
 <p>What if you had a way to generate this worst case scenario? Luckily, I was able to reverse engineer the quicksort algorithm and produce a shuffle that always shuffles the array into the worst case scenario for quicksort (if they have the same random seed). The simple algorithm is defined below.</p>
 
@@ -293,12 +293,12 @@ Different seeds: size = 524288	time = 72
 </code></pre>
 
 <p>Holy cow. Lets look at that in a graph. (They are sorting the exact same array!)
-<img src="/images/20150202030320.png" alt="Graph showing exponential curve" />
+<img src="http://davityle.github.io/blog/images/20150202030320.png" alt="Graph showing exponential curve" />
 </p>
 
 <p>The sorter using the same seed as the shuffler definitely looks exponential while the sorter using a different seed is hardly seen at all.</p>
 
-<h2 id="toc_2">Conclusion</h2>
+<h2 id="conclusion:f1244a5550aaa86ef2466aa9d905d4f0">Conclusion</h2>
 
 <p>There is a possiblity to hit the worst case using a randomized pivot point for your quicksort algorithm, but I &lsquo;forgot&rsquo; to mention that the possiblity of you finding one of these arrays that match up do perfectly in the &lsquo;wild&rsquo; is extremely rare. Using a random pivot is still probably the safest way to do it. Just don&rsquo;t forget that it is not a guarantee that you will always perform at O(n*log(n)).</p>
 

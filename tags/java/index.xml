@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Java on Tyler Davis </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://davityle.github.io/blog/tags/java/index.xml/</link>
+    <title>Java on Do you care?</title>
+    <link>http://davityle.github.io/blog/tags/java/</link>
+    <description>Recent content in Java on Do you care?</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Sat, 31 Jan 2015 10:01:16 MST</updated>
+    <lastBuildDate>Sat, 31 Jan 2015 10:01:16 -0700</lastBuildDate>
+    <atom:link href="http://davityle.github.io/blog/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>QuickSort-Randomizing does not remove worst case</title>
       <link>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</link>
-      <pubDate>Sat, 31 Jan 2015 10:01:16 MST</pubDate>
+      <pubDate>Sat, 31 Jan 2015 10:01:16 -0700</pubDate>
       
       <guid>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</guid>
       <description>
 
-&lt;h2 id=&#34;toc_0&#34;&gt;Problem&lt;/h2&gt;
+&lt;h2 id=&#34;problem:f1244a5550aaa86ef2466aa9d905d4f0&#34;&gt;Problem&lt;/h2&gt;
 
 &lt;p&gt;I&amp;rsquo;ve read in a few places that Randomizing the pivot point removes the worst case of O(n&lt;span style=&#34;position: relative; bottom: 1ex; font-size: 80%;&#34;&gt;2&lt;/span&gt;) from the quicksort algorithm. &lt;a href=&#34;http://en.wikipedia.org/wiki/Quicksort#Analysis_of_randomized_quicksort&#34;&gt;Wikipedia&lt;/a&gt; is one of those places. Other places write the whole story but don&amp;rsquo;t show any proof. The whole story is that randomizing the pivot point does not, necessarily, remove the worst case. It&amp;rsquo;s easy to show that this is the case. This article assumes basic knowledge of the quicksort algorithm and big O notation.&lt;/p&gt;
 
@@ -81,7 +81,7 @@ pivot: 9	 value: 1040
 
 &lt;p&gt;Even though this array is sorted using a random pivot it still hit the worst possible case.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Proof&lt;/h2&gt;
+&lt;h2 id=&#34;proof:f1244a5550aaa86ef2466aa9d905d4f0&#34;&gt;Proof&lt;/h2&gt;
 
 &lt;p&gt;What if you had a way to generate this worst case scenario? Luckily, I was able to reverse engineer the quicksort algorithm and produce a shuffle that always shuffles the array into the worst case scenario for quicksort (if they have the same random seed). The simple algorithm is defined below.&lt;/p&gt;
 
@@ -235,12 +235,12 @@ Different seeds: size = 524288	time = 72
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Holy cow. Lets look at that in a graph. (They are sorting the exact same array!)
-&lt;img src=&#34;/images/20150202030320.png&#34; alt=&#34;Graph showing exponential curve&#34; /&gt;
+&lt;img src=&#34;http://davityle.github.io/blog/images/20150202030320.png&#34; alt=&#34;Graph showing exponential curve&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;The sorter using the same seed as the shuffler definitely looks exponential while the sorter using a different seed is hardly seen at all.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&#34;conclusion:f1244a5550aaa86ef2466aa9d905d4f0&#34;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;There is a possiblity to hit the worst case using a randomized pivot point for your quicksort algorithm, but I &amp;lsquo;forgot&amp;rsquo; to mention that the possiblity of you finding one of these arrays that match up do perfectly in the &amp;lsquo;wild&amp;rsquo; is extremely rare. Using a random pivot is still probably the safest way to do it. Just don&amp;rsquo;t forget that it is not a guarantee that you will always perform at O(n*log(n)).&lt;/p&gt;
 </description>

@@ -4,18 +4,18 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title> Login Screen with NgAndroid &middot; Tyler Davis </title>
+    <title> Login Screen with NgAndroid &middot; Do you care? </title>
     
-    <link rel="stylesheet" type="text/css" href="http://davityle.github.io/blog/css/uno.min.css" />
-    <link rel="stylesheet" type="text/css" href="http://davityle.github.io/blog/css/lightGallery.css" />
+    <link rel="stylesheet" type="text/css" href="http://davityle.github.io/blog//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://davityle.github.io/blog//css/lightGallery.css" />
     
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://davityle.github.io/blog/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="http://davityle.github.io/blog/favicon.ico">
     
-    <link href="" rel="alternate" type="application/rss+xml" title="Tyler Davis" />
+    <link href="" rel="alternate" type="application/rss+xml" title="Do you care?" />
     
-    <script src="http://davityle.github.io/blog/js/jquery.min.js"></script>
-    <script src="http://davityle.github.io/blog/js/main.min.js">
+    <script src="http://davityle.github.io/blog//js/jquery.min.js"></script>
+    <script src="http://davityle.github.io/blog//js/main.min.js">
     </script>
     <script>      
       if (document.location.hostname != "localhost"){
@@ -40,7 +40,7 @@
         <div class="panel-main__inner panel-inverted">
             <div class="panel-main__content"> 
                 <h1 class="panel-cover__title panel-title">
-                    <a href="http://davityle.github.io/blog" title="link to homepage for Tyler Davis">Tyler Davis</a>
+                    <a href="http://davityle.github.io/blog/" title="link to homepage for Do you care?">Do you care?</a>
                 </h1>
                 <hr class="panel-cover__divider" />
                 <p class="panel-cover__description">  a blog for anyone who cares  </p>
@@ -48,7 +48,7 @@
                 <div class="navigation-wrapper">
                     <nav class="cover-navigation cover-navigation--primary">
                         <ul class="navigation">
-                            <li class="navigation__item"><a href="/#blog" title="link to Tyler Davis blog" class="blog-button">Blog</a> </li>
+                            <li class="navigation__item"><a href="http://davityle.github.io/blog/#blog" title="link to Do you care? blog" class="blog-button">Blog</a> </li>
                             </br>  </ul>
                     </nav> <nav class="cover-navigation navigation--social">
     <ul class="navigation">   
@@ -79,13 +79,13 @@
 <br>
 I really don&rsquo;t like writing user interface glue code. Enough said about that.</p>
 
-<h2 id="toc_0">TL;DR</h2>
+<h2 id="tl-dr:dd43b496b4e8887ed65740d406136809">TL;DR</h2>
 
 <p><a href="https://github.com/davityle/ngAndroid">NgAndroid</a> is an <strong>effecient compile time annotation processor</strong> that generates <strong>two data binding</strong> and layout controllers for Android <strong>MVC</strong>. <a href="https://github.com/davityle/ngAndroid">NgAndroid</a> is currently unstable.</p>
 
 <p>The code for a login screen can be found below or <a href="https://github.com/davityle/NgAndroid-Login-Demo">here</a>.</p>
 
-<h4 id="toc_1">Controller Scope</h4>
+<h4 id="controller-scope:dd43b496b4e8887ed65740d406136809">Controller Scope</h4>
 
 <pre><code>@NgScope(name=&quot;Login&quot;)
 public class LoginScope {
@@ -101,7 +101,7 @@ public class LoginScope {
 }
 </code></pre>
 
-<h4 id="toc_2">User Model</h4>
+<h4 id="user-model:dd43b496b4e8887ed65740d406136809">User Model</h4>
 
 <pre><code>public class User {
     private String username = &quot;&quot;, password = &quot;&quot;;
@@ -124,7 +124,7 @@ public class LoginScope {
 }
 </code></pre>
 
-<h4 id="toc_3">Layout</h4>
+<h4 id="layout:dd43b496b4e8887ed65740d406136809">Layout</h4>
 
 <pre><code>&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
     xmlns:tools=&quot;http://schemas.android.com/tools&quot;
@@ -173,7 +173,7 @@ public class LoginScope {
 &lt;/RelativeLayout&gt;
 </code></pre>
 
-<h4 id="toc_4">Activity</h4>
+<h4 id="activity:dd43b496b4e8887ed65740d406136809">Activity</h4>
 
 <pre><code>public class LoginActivity extends AppCompatActivity {
 
@@ -189,12 +189,12 @@ public class LoginScope {
 }
 </code></pre>
 
-<h4 id="toc_5">Product</h4>
+<h4 id="product:dd43b496b4e8887ed65740d406136809">Product</h4>
 
-<p><img src="/images/working_login.gif" alt="Working login" />
+<p><img src="http://davityle.github.io/blog/images/working_login.gif" alt="Working login" />
 </p>
 
-<h2 id="toc_6">Explanation</h2>
+<h2 id="explanation:dd43b496b4e8887ed65740d406136809">Explanation</h2>
 
 <p>Here is how to create an Android login screen using <a href="https://github.com/davityle/ngAndroid">NgAndroid</a>.</p>
 
@@ -202,7 +202,7 @@ public class LoginScope {
 
 <p>Create a new Blank Activity called LoginActivity and open activity_login.xml</p>
 
-<p><img src="/images/new_activity.png" alt="Android Studio create activity view" />
+<p><img src="http://davityle.github.io/blog/images/new_activity.png" alt="Android Studio create activity view" />
 </p>
 
 <p>Change the root view of the layout to <code>RelativeLayout</code> and change the padding to <code>android:padding=&quot;60dp&quot;</code>.</p>
@@ -233,7 +233,7 @@ public class LoginScope {
 
 <p>If you run your app you should have something that looks like this (on Android Lollipop).</p>
 
-<p><img src="/images/not_disabled.png" alt="App screenshot" />
+<p><img src="http://davityle.github.io/blog/images/not_disabled.png" alt="App screenshot" />
 </p>
 
 <p>Now lets add in NgAndroid. If you open up your project build.gradle file you will see something like this.</p>
@@ -402,7 +402,7 @@ like this.</p>
 
 <p>Now run your app.</p>
 
-<p><img src="/images/not_disabled.png" alt="App screenshot" />
+<p><img src="http://davityle.github.io/blog/images/not_disabled.png" alt="App screenshot" />
 </p>
 
 <p>But wait, why isn&rsquo;t the submit button disabled until after you start typing?
@@ -411,7 +411,7 @@ That is just saying that when NgAndroid tried finding whether or not the submit 
 Initializing <code>username</code> and <code>password</code> will fix that. <code>private String username = &quot;&quot;, password = &quot;&quot;;</code>.
 If you run it again it&rsquo;ll be disabled like expected.</p>
 
-<p><img src="/images/disabled.png" alt="App screenshot" />
+<p><img src="http://davityle.github.io/blog/images/disabled.png" alt="App screenshot" />
 </p>
 
 <p>If you type in 6 or more characters in both the username and the password fields than you will see that the submit button is enabled.</p>
@@ -465,7 +465,7 @@ your network call is active.</p>
 
 <p>It&rsquo;s that easy.</p>
 
-<p><img src="/images/working_login.gif" alt="Working login" />
+<p><img src="http://davityle.github.io/blog/images/working_login.gif" alt="Working login" />
 </p>
 
         </div>
