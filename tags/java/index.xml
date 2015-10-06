@@ -3,7 +3,7 @@
   <channel>
       <title>Java on Tyler Davis </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://tylerdavis.info/tags/java/index.xml/</link>
+    <link>http://davityle.github.io/blog/tags/java/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>QuickSort-Randomizing does not remove worst case</title>
-      <link>http://tylerdavis.info/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</link>
+      <link>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</link>
       <pubDate>Sat, 31 Jan 2015 10:01:16 MST</pubDate>
       
-      <guid>http://tylerdavis.info/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</guid>
+      <guid>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Problem&lt;/h2&gt;
