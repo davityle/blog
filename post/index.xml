@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Do you care?</title>
-    <link>http://davityle.github.io/blog/post/</link>
+    <link>http://davityle.github.io/blog/post.html</link>
     <description>Recent content in Posts on Do you care?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Sep 2015 21:15:59 -0600</lastBuildDate>
-    <atom:link href="http://davityle.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://davityle.github.io/blog/post.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Login Screen with NgAndroid</title>
-      <link>http://davityle.github.io/blog/post/login-ngandroid/</link>
+      <link>http://davityle.github.io/blog/post/login-ngandroid.html</link>
       <pubDate>Wed, 09 Sep 2015 21:15:59 -0600</pubDate>
       
-      <guid>http://davityle.github.io/blog/post/login-ngandroid/</guid>
+      <guid>http://davityle.github.io/blog/post/login-ngandroid.html</guid>
       <description>
 
 &lt;p&gt;&lt;br&gt;
@@ -414,10 +414,10 @@ your network call is active.&lt;/p&gt;
     
     <item>
       <title>NgAndroid Introduction</title>
-      <link>http://davityle.github.io/blog/post/ngandroid-intro/</link>
+      <link>http://davityle.github.io/blog/post/ngandroid-intro.html</link>
       <pubDate>Wed, 18 Feb 2015 00:05:28 -0700</pubDate>
       
-      <guid>http://davityle.github.io/blog/post/ngandroid-intro/</guid>
+      <guid>http://davityle.github.io/blog/post/ngandroid-intro.html</guid>
       <description>
 
 &lt;p&gt;&lt;img src=&#34;http://davityle.github.io/blog/images/ngandroid.png&#34; alt=&#34;NgAndroid&#34; /&gt;
@@ -616,10 +616,10 @@ private void onIvClick(){
     
     <item>
       <title>Democracy in America</title>
-      <link>http://davityle.github.io/blog/post/democracy-in-america/</link>
+      <link>http://davityle.github.io/blog/post/democracy-in-america.html</link>
       <pubDate>Sat, 14 Feb 2015 13:52:06 -0700</pubDate>
       
-      <guid>http://davityle.github.io/blog/post/democracy-in-america/</guid>
+      <guid>http://davityle.github.io/blog/post/democracy-in-america.html</guid>
       <description>
 
 &lt;h4 id=&#34;this-is-an-essay-that-i-wrote-when-i-have-more-time-i-will-elaborate-more-on-my-stance-and-take-out-the-essayness:507f84182d69c5ebcf490990adb9a307&#34;&gt;This is an essay that I wrote. When I have more time I will elaborate more on my stance and take out the essayness.&lt;/h4&gt;
@@ -646,10 +646,10 @@ private void onIvClick(){
     
     <item>
       <title>Creating a striped view in Android</title>
-      <link>http://davityle.github.io/blog/post/stripes-in-android/</link>
+      <link>http://davityle.github.io/blog/post/stripes-in-android.html</link>
       <pubDate>Sat, 07 Feb 2015 11:30:53 -0700</pubDate>
       
-      <guid>http://davityle.github.io/blog/post/stripes-in-android/</guid>
+      <guid>http://davityle.github.io/blog/post/stripes-in-android.html</guid>
       <description>&lt;p&gt;Have you ever said to yourself, &amp;lsquo;Wow, this view needs some stripes, but there is no android:stripes=&amp;ldquo;true&amp;rdquo; attribute and I don&amp;rsquo;t know how to draw stripes using the canvas&amp;rsquo;? If so, this is the perfect place for you. Or, if you need to draw stripes and figured you&amp;rsquo;d check the internet for an easy solution before you tried it yourself than you are also in the right place.&lt;/p&gt;
 
 &lt;p&gt;For those of you who just want the code here it is.&lt;/p&gt;
@@ -862,10 +862,10 @@ stripespath.lineTo(xPos, bottomy);
     
     <item>
       <title>QuickSort-Randomizing does not remove worst case</title>
-      <link>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</link>
+      <link>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case.html</link>
       <pubDate>Sat, 31 Jan 2015 10:01:16 -0700</pubDate>
       
-      <guid>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</guid>
+      <guid>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case.html</guid>
       <description>
 
 &lt;h2 id=&#34;problem:f1244a5550aaa86ef2466aa9d905d4f0&#34;&gt;Problem&lt;/h2&gt;

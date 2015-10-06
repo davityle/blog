@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Animation on Do you care?</title>
-    <link>http://davityle.github.io/blog/tags/animation/</link>
+    <link>http://davityle.github.io/blog/tags/animation.html</link>
     <description>Recent content in Animation on Do you care?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Feb 2015 11:30:53 -0700</lastBuildDate>
-    <atom:link href="http://davityle.github.io/blog/tags/animation/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://davityle.github.io/blog/tags/animation.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Creating a striped view in Android</title>
-      <link>http://davityle.github.io/blog/post/stripes-in-android/</link>
+      <link>http://davityle.github.io/blog/post/stripes-in-android.html</link>
       <pubDate>Sat, 07 Feb 2015 11:30:53 -0700</pubDate>
       
-      <guid>http://davityle.github.io/blog/post/stripes-in-android/</guid>
+      <guid>http://davityle.github.io/blog/post/stripes-in-android.html</guid>
       <description>&lt;p&gt;Have you ever said to yourself, &amp;lsquo;Wow, this view needs some stripes, but there is no android:stripes=&amp;ldquo;true&amp;rdquo; attribute and I don&amp;rsquo;t know how to draw stripes using the canvas&amp;rsquo;? If so, this is the perfect place for you. Or, if you need to draw stripes and figured you&amp;rsquo;d check the internet for an easy solution before you tried it yourself than you are also in the right place.&lt;/p&gt;
 
 &lt;p&gt;For those of you who just want the code here it is.&lt;/p&gt;

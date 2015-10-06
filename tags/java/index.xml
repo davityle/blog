@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java on Do you care?</title>
-    <link>http://davityle.github.io/blog/tags/java/</link>
+    <link>http://davityle.github.io/blog/tags/java.html</link>
     <description>Recent content in Java on Do you care?</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 31 Jan 2015 10:01:16 -0700</lastBuildDate>
-    <atom:link href="http://davityle.github.io/blog/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://davityle.github.io/blog/tags/java.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>QuickSort-Randomizing does not remove worst case</title>
-      <link>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</link>
+      <link>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case.html</link>
       <pubDate>Sat, 31 Jan 2015 10:01:16 -0700</pubDate>
       
-      <guid>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case/</guid>
+      <guid>http://davityle.github.io/blog/post/QuickSort-Randomizing%20does%20not%20remove%20worst%20case.html</guid>
       <description>
 
 &lt;h2 id=&#34;problem:f1244a5550aaa86ef2466aa9d905d4f0&#34;&gt;Problem&lt;/h2&gt;
