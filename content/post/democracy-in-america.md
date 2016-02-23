@@ -5,10 +5,11 @@ Tags = ["government", "democracy"]
 date = "2015-02-14T13:52:06-07:00"
 menu = "main"
 title = "Democracy in America"
+draft = true
 
 +++
 
-#### This is an essay that I wrote. When I have more time I will elaborate more on my stance and take out the essayness.
+##### This is an essay that I wrote. When I have more time I will elaborate more on my stance and take out the essayness.
 
 <div style="text-align: center;"><h3>Dahl and the Constitution</h3></div>
 <!--more-->

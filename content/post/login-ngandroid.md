@@ -8,19 +8,25 @@ title = "Login Screen with NgAndroid"
 
 +++
 
+#### Edit*
+
+With the release of the official [Android data binding library](http://developer.android.com/tools/data-binding/guide.html) NgAndroid has been deprecated.
+
+-----
+
 <br>
 <br>
 I really don't like writing user interface glue code. Enough said about that.
 
-## TL;DR
+#### TL;DR
 
 [NgAndroid](https://github.com/davityle/ngAndroid) is an <strong>effecient compile time annotation processor</strong> that generates <strong>two data binding</strong> and layout controllers for Android <strong>MVC</strong>. [NgAndroid](https://github.com/davityle/ngAndroid) is currently unstable.
 
 The code for a login screen can be found below or [here](https://github.com/davityle/NgAndroid-Login-Demo).
 <!--more-->
 
-#### Controller Scope
-```
+###### Controller Scope
+{{< highlight java>}}
 @NgScope(name="Login")
 public class LoginScope {
     @NgModel
@@ -33,9 +39,9 @@ public class LoginScope {
         Toast.makeText(context, user.getUsername() + " : " +user.getPassword(), Toast.LENGTH_SHORT ).show();
     }
 }
-```
-#### User Model
-```
+{{< /highlight>}}
+###### User Model
+{{< highlight java>}}
 public class User {
     private String username = "", password = "";
 
@@ -55,9 +61,9 @@ public class User {
         this.password = password;
     }
 }
-```
-#### Layout
-```
+{{< /highlight>}}
+###### Layout
+{{< highlight xml>}}
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:x="http://schemas.android.com/apk/res-auto"
@@ -103,9 +109,9 @@ public class User {
         x:ngInvisible="!call.active"/>
 
 </RelativeLayout>
-```
-#### Activity
-```
+{{< /highlight>}}
+###### Activity
+{{< highlight java>}}
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -118,12 +124,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 }
-```
+{{< /highlight>}}
 
-#### Product
+###### Product
 ![Working login](/images/working_login.gif)
 
-## Explanation
+#### Explanation
 
 Here is how to create an Android login screen using [NgAndroid](https://github.com/davityle/ngAndroid).
 
@@ -137,7 +143,7 @@ Change the root view of the layout to `RelativeLayout` and change the padding to
 
 Add a `Button` and two `EditText` views.
 
-```
+{{< highlight xml>}}
 <EditText
     android:id="@+id/username"
     android:layout_width="match_parent"
@@ -158,7 +164,7 @@ Add a `Button` and two `EditText` views.
     android:layout_height="wrap_content"
     android:text="Submit"
     android:layout_centerInParent="true"/>
-```
+{{< /highlight>}}
 
 If you run your app you should have something that looks like this (on Android Lollipop).
 
@@ -167,7 +173,7 @@ If you run your app you should have something that looks like this (on Android L
 Now lets add in NgAndroid. If you open up your project build.gradle file you will see something like this.
 
 
-```
+{{< highlight groovy>}}
 buildscript {
     repositories {
         jcenter()
@@ -185,17 +191,17 @@ allprojects {
     }
 }
 
-```
+{{< /highlight>}}
 
 In buildscript.dependencies add a new classpath `classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'` and in allprojects.repositories add
-```
+{{< highlight groovy>}}
 maven {
     url 'http://oss.sonatype.org/content/repositories/snapshots'
 }
-```
+{{< /highlight>}}
 So your build.gradle would then look like this.
 
-```
+{{< highlight groovy>}}
 buildscript {
     repositories {
         jcenter()
@@ -217,29 +223,29 @@ allprojects {
         }
     }
 }
-```
+{{< /highlight>}}
 The maven.url is only necessary because you are going to be using a snapshot build of NgAndroid.
 
 Now open up your app's build.gradle and add `apply plugin: 'com.neenbedankt.android-apt'` below `apply plugin: 'com.android.application'` and add
-```
+{{< highlight groovy>}}
 compile 'com.github.davityle:ngandroid:1.0.10-SNAPSHOT'
 apt 'com.github.davityle:ng-processor:1.0.10-SNAPSHOT'
-```
+{{< /highlight>}}
 to your dependencies.
 
 Now create a class called LoginScope. Your scope is important. It is the base reference for all of your bindings.
 To make LoginScope a scope that NgAndroid will recognize you need to add `@NgScope(name="Login")` to the class declaration.
 
-```
+{{< highlight java>}}
 @NgScope(name="Login")
 public class LoginScope {
 
 }
-```
+{{< /highlight>}}
 
 Now create a User model class for your data.
 
-```
+{{< highlight java>}}
 public class User {
 
     private String username, password;
@@ -260,17 +266,17 @@ public class User {
         this.password = password;
     }
 }
-```
+{{< /highlight>}}
 
 Add a user field to `LoginScope` annotated with `@NgModel`.
 
-```
+{{< highlight java>}}
 @NgScope(name="Login")
 public class LoginScope {
     @NgModel
     User user;
 }
-```
+{{< /highlight>}}
 
 By annotating a class with the `@NgModel` annotation you are telling NgAndroid to create a subclass of that class that will handle all of the view bindings.
 It also means that NgAndroid will inject that field. There is no need to instantiate it.
@@ -279,7 +285,7 @@ Let's create some bindings. Open up activity_login.xml again and add `xmlns:x="h
 below `xmlns:android="http://schemas.android.com/apk/res/android"` in your `RelativeLayout`.
 Then declare the scope of the xml file by adding `x:ngScope="Login"` as well. You should have something that looks like this.
 
-```
+{{< highlight xml>}}
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:x="http://schemas.android.com/apk/res-auto"
@@ -293,7 +299,7 @@ Then declare the scope of the xml file by adding `x:ngScope="Login"` as well. Yo
 
 
 </RelativeLayout>
-```
+{{< /highlight>}}
 
 I also like to add `tools:ignore="MissingPrefix"` to the root layout.
 Otherwise Android Studio will complain about adding non android prefix attributes to standard views.
@@ -305,7 +311,7 @@ Also, make your submit button only be enabled if the lengths of the username and
 `x:ngDisabled="user.username.length() &lt; 6 || user.password.length() &lt; 6"` to your submit button. All together it should look
 like this.
 
-```
+{{< highlight xml>}}
 <EditText
     android:id="@+id/username"
     android:layout_width="match_parent"
@@ -329,7 +335,7 @@ like this.
     android:text="Submit"
     android:layout_centerInParent="true"
     x:ngDisabled="user.username.length() &lt; 6 || user.password.length() &lt; 6"/>
-```
+{{< /highlight>}}
 
 The `&lt;` is the symbol for `<` in an xml attribute. `&gt;` is the symbol for `>`.
 
@@ -349,20 +355,20 @@ If you type in 6 or more characters in both the username and the password fields
 
 In order to do something when the submit button is clicked create a method in your scope.
 
-```
+{{< highlight java>}}
 void onSubmit(Context context) {
     Toast.makeText(context, user.getUsername() + " : " +user.getPassword(), Toast.LENGTH_SHORT ).show();
 }
-```
+{{< /highlight>}}
 
 Then create an event binding in your layout file.
 
-```
+{{< highlight xml>}}
 <Button
     android:id="@+id/submit"
     ...
     x:ngClick="onSubmit($view.context)"/>
-```
+{{< /highlight>}}
 
 You'll notice the `$view` syntax. `$` is a symbol that allows you to reference predefined NgAndroid variables.
 $view is a reference to the view that will be bound to the click event. You can use `.context` as a shortcut to
@@ -372,20 +378,20 @@ Now you have a working login screen. If you want to add an animation to that it'
 Add the `ProgressBar` to your layout with an `ngInvisible` attribute to make it only visible while
 your network call is active.
 
-```
+{{< highlight xml>}}
 <ProgressBar
     android:id="@+id/progress"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
     x:ngInvisible="!call.active"/>
-```
+{{< /highlight>}}
 
 Add `x:ngInvisible="call.active"` to your submit button to hide it when your call is active.
 
 Finally add your `NetworkCall` model to your `LoginScope` and set it as active.
 
-```
+{{< highlight java>}}
 public class LoginScope {
     //...
     @NgModel
@@ -396,7 +402,7 @@ public class LoginScope {
         //...
     }
 }
-```
+{{< /highlight>}}
 
 It's that easy.
 

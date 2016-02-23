@@ -7,6 +7,12 @@ menu = "main"
 title = "NgAndroid Introduction"
 +++
 
+#### Edit*
+
+This tutorial is out of date. See [Login Screen with NgAndroid]({{< relref "login-ngandroid.md" >}}) for a tutorial on the lastest version of NgAndroid.
+
+-----
+
 ![NgAndroid](/images/ngandroid.png)
 
 <br>
@@ -21,10 +27,10 @@ If you don't know anything about AngularJS then you probably don't know why this
 <!--more-->
 
 
-## Two Way Data Binding
+#### Two Way Data Binding
 
 When you create a view in XML that the user is going to interact with you usually end up with something that looks like this.
-```
+{{< highlight xml>}}
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     ...>
@@ -45,8 +51,8 @@ When you create a view in XML that the user is going to interact with you usuall
         android:id="@+id/iv_ico"
         .../>
 </RelativeLayout>
-```
-```
+{{< /highlight>}}
+{{< highlight java>}}
 public class Model {
     private String title;
     private String text;
@@ -117,7 +123,7 @@ protected void onCreate(Bundle savedInstanceState) {
     });
 
 }
-```
+{{< /highlight>}}
 
 Most of that code is template code. You are doing the same mundane work every time you make a new view.
 
@@ -134,7 +140,7 @@ What if you could bind your view to your model in a two way fashion. All of the 
 >(https://docs.angularjs.org/guide/databinding)
 
 With ngAndroid now your view can look like this.
-```
+{{< highlight xml>}}
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ngAndroid="http://schemas.android.com/apk/res-auto"
@@ -162,8 +168,8 @@ With ngAndroid now your view can look like this.
         ngAndroid:ngClick="onIvClick()"
         .../>
 </RelativeLayout>
-```
-```
+{{< /highlight>}}
+{{< highlight java>}}
 public interface Model {
     public boolean isActive();
     public void setIsActive(boolean isActive);
@@ -185,7 +191,7 @@ protected void onCreate(Bundle savedInstanceState) {
 private void onIvClick(){
     // do something with the click
 }
-```
+{{< /highlight>}}
 With just that you have two way databinding. Your model will always reflect your application state. We also get identical funcionality to the previous code. Pretty sweet ey?
 
 
