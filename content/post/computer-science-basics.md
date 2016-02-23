@@ -8,14 +8,35 @@ title = "Basic Data Structures and Algorithms"
 
 +++
 
+#### Description
+
 This post contains the implementations, in Java 8, of a few data structures and algorithms commonly discussed within computer science.
 
 The full source code for this post can be found [here](https://github.com/davityle/cs-basics-java)
 
 The tests for the data structures and algorithms can be found [here](https://github.com/davityle/cs-basics-java/tree/master/test/com/github/davityle/csbasics)
 
-#### Data Structures
+[Hash Map]({{< relref "computer-science-basics.md#hash-map" >}})
 
+[Graph]({{< relref "computer-science-basics.md#graph" >}})
+
+[Array List]({{< relref "computer-science-basics.md#array-list" >}})
+
+[Linked List]({{< relref "computer-science-basics.md#linked-list" >}})
+
+[Tree]({{< relref "computer-science-basics.md#tree" >}})
+
+[Trie]({{< relref "computer-science-basics.md#trie" >}})
+
+[Quick Sort]({{< relref "computer-science-basics.md#quick-sort" >}})
+
+[Merge Sort]({{< relref "computer-science-basics.md#merge-sort" >}})
+
+[A*]({{< relref "computer-science-basics.md#a" >}})
+
+[Convex Hull]({{< relref "computer-science-basics.md#convex-hull" >}})
+<!--more-->
+#### Data Structures
 
 ##### Hash Map
 
@@ -126,7 +147,6 @@ public abstract class HashMap<T, R> {
 }
 
 {{< /highlight >}}
-<!--more-->
 ###### Hash Map Collision Algorithms
 {{< highlight java >}}
 package com.github.davityle.csbasics.data.map;
@@ -453,13 +473,13 @@ public class ArrayList<T> implements List<T> {
         return value;
     }
 
-    public Optional<Integer> indexOf(T value) {
+    public OptionalInt indexOf(T value) {
         for (int i = 0; i < size; i++) {
-            if (list[i].equals(value)) {
-                return Optional.of(i);
+            if (list[i] != null && list[i].equals(value)) {
+                return OptionalInt.of(i);
             }
         }
-        return Optional.empty();
+        return OptionalInt.empty();
     }
 
     public boolean has(T value) {
@@ -548,16 +568,18 @@ public class LinkedList<T> implements Queue<T>, Stack<T>, List<T> {
         return n.value;
     }
 
-    public Optional<Integer> indexOf(T value) {
+    public OptionalInt indexOf(T value) {
+        if(value == null)
+            throw new IllegalArgumentException("value must not be null");
         Node<T> n = headNode.next;
         int i = 0;
         while (n != null) {
             if (value.equals(n.value))
-                return Optional.of(i);
+                return OptionalInt.of(i);
             i++;
             n = n.next;
         }
-        return Optional.empty();
+        return OptionalInt.empty();
     }
 
     public boolean has(T value) {
