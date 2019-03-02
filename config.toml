@@ -2,10 +2,11 @@ languageCode = "en-us"
 title = "Einu sinni á Koala"
 theme = "detox"
 baseurl = "https://davityle.github.io/"
-PygmentsStyle = "trac"
+PygmentsStyle = "tango"
 
 [params]
 	description = "A software development blog by Tyler Davis"
 	linkedin = "davityle"
 	github = "davityle"
 	email = "td@tyler-davis.com.com"
+	google_analytics = "UA-59928738-2"
