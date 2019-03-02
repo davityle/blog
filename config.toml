@@ -1,11 +1,11 @@
 languageCode = "en-us"
-title = "If You Care"
+title = "Einu sinni á Koala"
 theme = "detox"
 baseurl = "https://davityle.github.io/"
+PygmentsStyle = "trac"
 
 [params]
 	description = "A software development blog by Tyler Davis"
 	linkedin = "davityle"
-	headerCover = "/images/fam-pic.jpg"
 	github = "davityle"
-	email = "tyler@goodintheglobe.com"
+	email = "td@tyler-davis.com.com"
